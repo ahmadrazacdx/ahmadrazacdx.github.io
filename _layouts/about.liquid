@@ -22,14 +22,10 @@ layout: default
           {% assign profile_image_class = 'img-fluid' %}
           {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
       30vw, 95vw"{% endcapture %}
-          <img
-            src="{{ page.profile.image | prepend: 'assets/img/' | relative_url }}"
-            class="{{ profile_image_class }}"
-            style="-webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%); mask-image: linear-gradient(to bottom, black 70%, transparent 100%);"
-            alt="{{ page.profile.image_alt | default: 'profile image' }}"
-            width="100%"
-            height="auto"
-          >
+          {%
+        include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
+        cache_bust=true
+      %}
         {% endif %}
         {% if page.profile.more_info %}
           <div class="more-info">{{ page.profile.more_info }}</div>
