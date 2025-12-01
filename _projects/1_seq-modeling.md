@@ -16,4 +16,4 @@ This project is a deep dive into the mathematical foundations of sequence modeli
 - **Seq2Seq with Attention:** Implemented Bahdanau and Luong attention mechanisms for machine translation tasks.
 - **Word & Char Level LMs:** Trained language models on text datasets like "The Thirsty Crow".
 
-This project sharpened my understanding of computational graphs and gradient flow in dynamic networks.
+This project sharpened my understanding of computational graphs and gradient flow in dynamic networks like sequence models and hands on language modeling.

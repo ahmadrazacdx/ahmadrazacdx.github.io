@@ -1,14 +1,14 @@
 ---
 layout: page
 title: NeuroScope
-description: A visualization toolkit for interpreting neural network activations and gradients.
+description: A framework for informed training of multi-layer perceptron, diagnosing training issues, accelerating learning and rapid prototyping.
 img: assets/img/neuroscope.svg
 importance: 2
 category: work
 github: https://github.com/ahmadrazacdx/neuro-scope
 ---
 
-NeuroScope is a Python library designed to make AI interpretability accessible. It allows researchers to visualize the internal state of neural networks during training.
+NeuroScope is a Python frameworl designed to make AI interpretability accessible. It allows researchers to visualize the internal state of neural networks during training.
 
 **Features:**
 
@@ -16,4 +16,4 @@ NeuroScope is a Python library designed to make AI interpretability accessible. 
 - **Gradient Flow Analysis:** Track gradient norms to detect vanishing or exploding gradients.
 - **Training Dynamics:** Watch how weights evolve over time with animated histograms.
 
-The library is built with **Plotly** for interactive charts and integrates seamlessly with PyTorch training loops.
+The framework is built with only **NumPy** and **Matplotlib**.
