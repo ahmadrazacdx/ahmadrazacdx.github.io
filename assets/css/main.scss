@@ -37,11 +37,17 @@ $max-content-width: {{ site.max_width }};
 * Projects
 *****************************************************************************/
 
+/*****************************************************************************
+* Projects
+*****************************************************************************/
+
 .projects {
   .card-img-top {
-    height: 200px;           /* Sets a fixed height for all project images */
-    object-fit: cover;       /* Ensures image fills the area without distortion */
-    object-position: center; /* Centers the image (fixes the stuck-to-top issue) */
-    width: 100%;             /* Ensures image spans the full width of the card */
+    height: 200px;           /* Keep fixed height for consistency */
+    width: 100%;             /* Keep full width */
+    object-fit: contain;     /* CHANGED: Fits entire image inside the box */
+    object-position: center; /* Centers the image within the whitespace */
+    background-color: #fff;  /* Optional: Adds white background for transparent images/SVGs */
+    padding: 10px;           /* Optional: Adds breathing room so text doesn't touch edges */
   }
 }
