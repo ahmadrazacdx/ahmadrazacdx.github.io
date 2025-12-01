@@ -23,3 +23,12 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-filled.scss",
   "tabler-icons/tabler-icons-outline.scss"
 ;
+
+/* Custom Social Icon Sizing */
+.social {
+  font-size: 1.2rem !important; /* Default is usually larger, this makes them smaller */
+  
+  a {
+    margin: 0 5px !important; /* Optional: adjusts spacing between them */
+  }
+}
