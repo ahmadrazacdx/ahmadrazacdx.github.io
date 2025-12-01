@@ -11,8 +11,9 @@ github: https://github.com/ahmadrazacdx/house-oracle
 House Oracle is a full-stack Machine Learning application that predicts house prices based on location, area, and amenities.
 
 **Tech Stack:**
-* **Frontend:** HTML5, CSS3, and Vanilla JavaScript for a responsive UI.
-* **ML Pipeline:** Trained on city-specific datasets (Lahore, Karachi, Islamabad) using predictive modeling.
-* **Interactive Visualizations:** Users can explore price trends and property distributions directly in the browser.
+
+- **Frontend:** HTML5, CSS3, and Vanilla JavaScript for a responsive UI.
+- **ML Pipeline:** Trained on city-specific datasets (Lahore, Karachi, Islamabad) using predictive modeling.
+- **Interactive Visualizations:** Users can explore price trends and property distributions directly in the browser.
 
 The system uses pre-computed artifacts to serve predictions instantly without needing a heavy backend server.
