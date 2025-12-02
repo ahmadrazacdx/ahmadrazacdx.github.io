@@ -64,7 +64,7 @@ ninja.data = [{
               window.location.href = "/projects/1_seq-modeling/";
             },},{id: "projects-neuroscope",
           title: 'NeuroScope',
-          description: "A visualization toolkit for interpreting neural network activations and gradients.",
+          description: "A framework for informed training of multi-layer perceptron, diagnosing training issues, accelerating learning and rapid prototyping.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_neuroscope/";
             },},{id: "projects-house-oracle",
