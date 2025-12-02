@@ -34,7 +34,7 @@ ninja.data = [{
         
           title: "A Synthesis of Biological and Computational Learning",
         
-        description: "This blog examines the biological substrates of learning and memory, tracing their influence on the development of artificial neural networks.",
+        description: "This article examines the biological substrates of learning and memory, tracing their influence on the development of artificial neural networks.",
         section: "Posts",
         handler: () => {
           
