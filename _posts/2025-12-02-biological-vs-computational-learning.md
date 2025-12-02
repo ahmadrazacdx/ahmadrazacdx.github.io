@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A Synthesis of Biological and Computational Learning
-date: 2025-12-02 15:00:00
+date: 2025-12-02 00:00:00
 description: This blog examines the biological substrates of learning and memory, tracing their influence on the development of artificial neural networks.
 tags: neuroscience ai learning memory
 categories: blog
