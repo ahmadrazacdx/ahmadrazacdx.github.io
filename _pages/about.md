@@ -26,7 +26,8 @@ latest_posts:
 
 I am a 7th-semester Software Engineering Undergrad based in Pakistan (CGPA 3.82/4.00) at [Thal University Bhakkar](https://tu.edu.pk/), driven by a single fundamental question: **How can we bridge the gap between biological intelligence and artificial systems?**
 
-My long-term goal is to contribute to the development of [Artificial General Intelligence](#) (AGI) as an AI Researcher in Academia. I believe that true innovation in AI comes not just from scaling models, but from understanding the mathematical and biological foundations of learning itself. I focus on [First-Principles Thinking](#). I build complex architectures, from [LSTM](#) and [GRU](#) to [Attention Mechanisms](#), completely from scratch using [NumPy](https://numpy.org/). This allows me to understand the *heartbeat* of the algorithms: the flow of gradients, the geometry of loss landscapes, and the dynamics of optimization. My tech skills include;
+My long-term goal is to contribute to the development of [Artificial General Intelligence](#) (AGI) as an AI Researcher in Academia. I believe that true innovation in AI comes not just from scaling models, but from understanding the mathematical and biological foundations of learning itself. I focus on [First-Principles Thinking](#). I build complex architectures, from [LSTM](#) and [GRU](#) to [Attention Mechanisms](#), completely from scratch using [NumPy](https://numpy.org/). This allows me to understand the _heartbeat_ of the algorithms: the flow of gradients, the geometry of loss landscapes, and the dynamics of optimization. My tech skills include;
+
 - **NLP:** LLMs, Transformers, fine-tuning, transfer learning, sequence models.
 - **ML/DL:** Classical ML theory, deep neural networks, representation learning.
 - **MLOps:** Model deployment, Docker, CI/CD and orchestration pipelines, AWS, K8s.

@@ -2,7 +2,7 @@
 layout: page
 title: Seq Modeling From Scratch
 description: Implementing RNNs, LSTMs, GRUs, and Attention mechanisms using purely NumPy.
-img: assets/img/seq_modeling.png
+img: assets/img/seq_modeling.webp
 importance: 1
 category: work
 github: https://github.com/ahmadrazacdx/seq-modeling-from-scratch
