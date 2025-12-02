@@ -27,6 +27,7 @@ latest_posts:
 I am a 7th-semester Software Engineering Undergrad based in Pakistan (CGPA 3.82/4.00) at [Thal University Bhakkar](https://tu.edu.pk/), driven by a single, fundamental question: **How can we bridge the gap between biological intelligence and artificial systems?**
 
 My long-term goal is to contribute to the development of Artificial General Intelligence (AGI) as an AI Researcher in Academia. I believe that true innovation in AI comes not just from scaling models, but from understanding the mathematical and biological foundations of learning itself. I focus on **First-Principles Thinking**. I build complex architectures, from LSTMs and GRUs to Attention mechanisms, completely from scratch using **NumPy**. This allows me to understand the "heartbeat" of the algorithms: the flow of gradients, the geometry of loss landscapes, and the dynamics of optimization.
+
 **Technical Background**
 - **NLP:** LLMs, Transformers, fine-tuning, transfer learning, sequence models.
 - **ML/DL:** Classical ML theory, deep neural networks, representation learning.
@@ -34,4 +35,5 @@ My long-term goal is to contribute to the development of Artificial General Inte
 - **Foundations:** Linear algebra, calculus, probability theory, statistics.
 
 While my core focus is on AI Engineering and Mathematics, I find it interesting to read about **Computational Neuroscience** and **Cognitive Psychology** to understand the biological substrates of cognition, which I think can offer unique intuitions for designing intelligent systems. I spend my free time with **Urdu poetry and literature**, play chess and video games, and listen to classical Ghazal & Bollywood music.
+
 Always happy to chat about ML, AI research, neuroscience, or Urdu poetry. Feel free to reach out!
