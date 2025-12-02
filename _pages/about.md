@@ -2,13 +2,16 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <b>Deep Learning Practitioner & Researcher</b>
 
 profile:
   align: right
   image: prof_pic.png
   image_circular: true # crops the image to make it circular
-  more_info:
+  more_info: >
+    <p>7th Semester, BS SE</p>
+    <p>CGPA: 3.82 / 4.00</p>
+    <p>Based in Pakistan</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -24,8 +27,23 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am driven by a single, fundamental question: **How can we bridge the gap between biological intelligence and artificial systems?**
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My long-term goal is to contribute to the development of Artificial General Intelligence (AGI) as an AI Researcher in Academia. I believe that true innovation in AI comes not just from scaling models, but from understanding the mathematical and biological foundations of learning itself.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+**My Approach**
+I focus on **First-Principles Thinking**. I build complex architectures, from LSTMs and GRUs to Attention mechanisms, completely from scratch using **NumPy**. This allows me to understand the "heartbeat" of the algorithms: the flow of gradients, the geometry of loss landscapes, and the dynamics of optimization.
+
+**Technical Background**
+- **NLP:** LLMs, Transformers, fine-tuning, transfer learning, sequence models.
+- **ML/DL:** Classical ML theory, deep neural networks, representation learning.
+- **MLOps:** Model deployment, Docker, CI/CD and orchestration pipelines, AWS, K8s.
+- **Foundations:** Linear algebra, calculus, probability theory, statistics.
+
+**Academic Curiosities**
+While my core focus is on AI Engineering and Mathematics, I find it interesting to read about **Computational Neuroscience** and **Cognitive Psychology** to understand the biological substrates of cognition, which I think can offer unique intuitions for designing intelligent systems.
+
+**Beyond the Code**
+I spend my free time with **Urdu poetry and literature**, play chess and video games, and listen to classical Ghazal & Bollywood music.
+
+Always happy to chat about ML, AI research, neuroscience, or Urdu poetry. Feel free to reach out!
