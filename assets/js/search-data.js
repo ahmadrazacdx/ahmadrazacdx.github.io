@@ -30,15 +30,15 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/books/";
           },
-        },{id: "post-a-post-with-image-galleries",
+        },{id: "post-a-synthesis-of-biological-and-computational-learning",
         
-          title: "a post with image galleries",
+          title: "A Synthesis of Biological and Computational Learning",
         
-        description: "this is what included image galleries could look like",
+        description: "This blog examines the biological substrates of learning and memory, tracing their influence on the development of artificial neural networks.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/photo-gallery/";
+            window.location.href = "/blog/2024/biological-vs-computational-learning/";
           
         },
       },{id: "books-the-godfather",

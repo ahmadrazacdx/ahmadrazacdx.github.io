@@ -1,0 +1,64 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666" opacity="0.3"/>
+    </marker>
+  </defs>
+  
+  <!-- Word boxes -->
+  <g id="boxes">
+    <!-- "the" -->
+    <rect x="50" y="180" width="80" height="40" fill="#4A90E2" stroke="#2E5C8A" stroke-width="2" rx="5"/>
+    <text x="90" y="205" text-anchor="middle" fill="white" font-size="18" font-family="Arial">the</text>
+    
+    <!-- "cat" -->
+    <rect x="200" y="180" width="80" height="40" fill="#4A90E2" stroke="#2E5C8A" stroke-width="2" rx="5"/>
+    <text x="240" y="205" text-anchor="middle" fill="white" font-size="18" font-family="Arial">cat</text>
+    
+    <!-- "sat" -->
+    <rect x="350" y="180" width="80" height="40" fill="#4A90E2" stroke="#2E5C8A" stroke-width="2" rx="5"/>
+    <text x="390" y="205" text-anchor="middle" fill="white" font-size="18" font-family="Arial">sat</text>
+    
+    <!-- "on" -->
+    <rect x="500" y="180" width="80" height="40" fill="#4A90E2" stroke="#2E5C8A" stroke-width="2" rx="5"/>
+    <text x="540" y="205" text-anchor="middle" fill="white" font-size="18" font-family="Arial">on</text>
+    
+    <!-- "mat" -->
+    <rect x="650" y="180" width="80" height="40" fill="#4A90E2" stroke="#2E5C8A" stroke-width="2" rx="5"/>
+    <text x="690" y="205" text-anchor="middle" fill="white" font-size="18" font-family="Arial">mat</text>
+  </g>
+  
+  <!-- Attention arrows (all-to-all connections) -->
+  <g id="arrows" opacity="0.4">
+    <!-- From "the" to others -->
+    <path d="M 130 190 Q 165 100 200 190" fill="none" stroke="#E74C3C" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 130 195 Q 240 70 350 190" fill="none" stroke="#E74C3C" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 130 200 Q 315 50 500 190" fill="none" stroke="#E74C3C" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 130 205 Q 390 30 650 190" fill="none" stroke="#E74C3C" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    
+    <!-- From "cat" to others -->
+    <path d="M 200 210 Q 165 300 130 210" fill="none" stroke="#9B59B6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 280 195 Q 315 110 350 195" fill="none" stroke="#9B59B6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 280 200 Q 390 80 500 195" fill="none" stroke="#9B59B6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 280 205 Q 465 60 650 195" fill="none" stroke="#9B59B6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    
+    <!-- From "sat" to others -->
+    <path d="M 350 210 Q 240 330 130 210" fill="none" stroke="#F39C12" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 350 210 Q 315 300 280 210" fill="none" stroke="#F39C12" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 430 200 Q 465 120 500 200" fill="none" stroke="#F39C12" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 430 205 Q 540 90 650 200" fill="none" stroke="#F39C12" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    
+    <!-- From "on" to others -->
+    <path d="M 500 210 Q 315 350 130 210" fill="none" stroke="#1ABC9C" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 500 210 Q 390 320 280 210" fill="none" stroke="#1ABC9C" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 500 210 Q 465 300 430 210" fill="none" stroke="#1ABC9C" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 580 205 Q 615 110 650 205" fill="none" stroke="#1ABC9C" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    
+    <!-- From "mat" to others -->
+    <path d="M 650 210 Q 390 370 130 210" fill="none" stroke="#E67E22" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 650 210 Q 465 340 280 210" fill="none" stroke="#E67E22" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 650 210 Q 540 320 430 210" fill="none" stroke="#E67E22" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <path d="M 650 210 Q 615 300 580 210" fill="none" stroke="#E67E22" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  </g>
+</svg>
