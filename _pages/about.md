@@ -24,15 +24,15 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a 7th-semester Software Engineering Undergrad based in Pakistan (CGPA 3.82/4.00) at [Thal University Bhakkar](https://tu.edu.pk/), driven by a single fundamental question: **How can we bridge the gap between biological intelligence and artificial systems?**
+I am a final-year Software Engineering Undergraduate at [Thal University Bhakkar](https://tu.edu.pk/) Pakistan. I'm driven by a single fundamental question: **How can we bridge the gap between biological intelligence and artificial systems?**
 
-My long-term goal is to contribute to the development of [Artificial General Intelligence](#) (AGI) as an AI Researcher in Academia. I believe that true innovation in AI comes not just from scaling models, but from understanding the mathematical and biological foundations of learning itself. I focus on [First-Principles Thinking](#). I build complex architectures, from [LSTM](#) and [GRU](#) to [Attention Mechanisms](#), completely from scratch using [NumPy](https://numpy.org/). This allows me to understand the _heartbeat_ of the algorithms: the flow of gradients, the geometry of loss landscapes, and the dynamics of optimization. My tech skills include;
+My long-term goal is to contribute to the development of [Artificial General Intelligence](#) (AGI) as an AI Researcher in Academia. I believe that true innovation in AI comes not just from scaling models, but from understanding the mathematical and biological foundations of learning itself. I focus on [First-Principles Thinking](#)—building complex architectures, from [LSTM](#) and [GRU](#) to [Attention Mechanisms](#), completely from scratch using [NumPy](https://numpy.org/). This allows me to understand the _heartbeat_ of the algorithms: the flow of gradients, the geometry of loss landscapes, and the dynamics of optimization. My tech skills include;
 
 - **NLP:** LLMs, Transformers, fine-tuning, transfer learning, sequence models.
 - **ML/DL:** Classical ML theory, deep neural networks, representation learning.
 - **MLOps:** Model deployment, Docker, CI/CD and orchestration pipelines, AWS, K8s.
 - **Foundations:** Linear algebra, calculus, probability theory, statistics.
 
-While my core focus is on AI Engineering and Mathematics, I find it interesting to read about [Computational Neuroscience](#) and [Cognitive Psychology](#) to understand the biological substrates of cognition, which I think can offer unique intuitions for designing intelligent systems. I spend my free time with [Urdu Poetry and Literature](#), play chess and video games, and listen to classical Ghazal & Bollywood music.
+While my core focus is on AI Engineering, I find it interesting to read about [Computational Neuroscience](#) and [Cognitive Psychology](#) to understand the biological substrates of cognition, which I think can offer unique intuitions for designing intelligent systems. I spend my free time with [Urdu Poetry and Literature](#), play chess and video games, and listen to classical Ghazal & Bollywood music.
 
 Always happy to chat about ML, AI research, neuroscience, or Urdu poetry. Feel free to reach out!
