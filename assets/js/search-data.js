@@ -23,13 +23,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "nav-reads",
-          title: "Reads",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/books/";
-          },
         },{id: "post-a-synthesis-of-biological-and-computational-learning",
         
           title: "A Synthesis of Biological and Computational Learning",
