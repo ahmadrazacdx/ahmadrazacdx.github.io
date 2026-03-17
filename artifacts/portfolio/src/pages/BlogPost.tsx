@@ -94,7 +94,7 @@ export default function BlogPost() {
         <MouseGradient />
         <div className="relative z-10">
           <Navbar />
-          <main className="max-w-3xl mx-auto px-6 pt-36 pb-24 text-center">
+          <main className="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 lg:p-12 pt-36 pb-24 text-center">
             <h1 className="text-4xl font-display font-bold mb-4">Post not found</h1>
             <Link href="/blog">
               <span className="text-primary hover:underline cursor-pointer">← Back to Writing</span>
@@ -113,7 +113,7 @@ export default function BlogPost() {
       <div className="relative z-10">
         <Navbar />
 
-        <div className="max-w-7xl mx-auto px-6 pt-36 pb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-36 pb-24">
           <div className="grid lg:grid-cols-[280px_1fr] gap-12">
             {/* Left Sidebar - TOC */}
             {post.headings.length > 0 && (

@@ -450,7 +450,37 @@
   background: linear-gradient(90deg, rgba(139,92,246,0.1) 0%, transparent 100%);
 }
 
-/* Spotlight effect on scroll - subtle glow around active section heading */
+/* Mobile responsive adjustments for blog content */
+@media (max-width: 768px) {
+  .prose-blog {
+    font-size: 0.95rem;
+  }
+  
+  .prose-blog h1 {
+    font-size: 1.75rem;
+  }
+  
+  .prose-blog h2 {
+    font-size: 1.4rem;
+  }
+  
+  .prose-blog h3 {
+    font-size: 1.2rem;
+  }
+  
+  .prose-blog pre[class*="language-"] {
+    font-size: 0.8rem;
+  }
+  
+  .prose-blog img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .prose-blog .katex-display {
+    font-size: 0.85em;
+  }
+}
 .prose-blog h2:target {
   animation: spotlight 1s ease-out;
 }

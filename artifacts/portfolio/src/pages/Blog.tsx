@@ -14,7 +14,7 @@ export default function Blog() {
       <div className="relative z-10">
         <Navbar />
 
-        <main className="max-w-4xl mx-auto px-6 pt-36 pb-24">
+        <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-36 pb-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

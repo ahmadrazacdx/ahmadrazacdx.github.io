@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { motion } from "framer-motion";
-import { PenLine } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { PenLine, Menu, X } from "lucide-react";
 
 const SECTIONS = ["about", "skills", "projects", "research", "contact"] as const;
 
@@ -11,6 +11,7 @@ export function Navbar() {
   const isWriting = location.startsWith("/blog");
 
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!isHome) {
@@ -57,12 +58,14 @@ export function Navbar() {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 py-5 flex justify-center pointer-events-none"
-    >
+    <>
+      {/* Desktop Navbar */}
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 py-5 flex justify-center pointer-events-none hidden md:flex"
+      >
       <div className="pointer-events-auto">
         {/* Gradient border wrapper */}
         <div
@@ -186,13 +189,94 @@ export function Navbar() {
                     transition={{ type: "spring", stiffness: 420, damping: 38 }}
                   />
                 )}
-                <PenLine className="w-3.5 h-3.5 relative z-10" strokeWidth={1.8} />
-                <span className="relative z-10">Blog</span>
+                <span className="relative z-10 flex items-center gap-1.5">
+                  <PenLine className="w-3.5 h-3.5" />
+                  Blog
+                </span>
               </div>
             </Link>
           </div>
         </div>
       </div>
-    </motion.nav>
+      </motion.nav>
+
+      {/* Mobile Navbar */}
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 py-4 px-4 flex justify-between items-center md:hidden"
+      >
+        <Link href="/">
+          <span className="text-lg font-display font-bold text-white cursor-pointer">
+            Ahmad Raza
+          </span>
+        </Link>
+        
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="p-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? (
+            <X className="w-5 h-5 text-white" />
+          ) : (
+            <Menu className="w-5 h-5 text-white" />
+          )}
+        </button>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-lg md:hidden"
+          >
+            <div className="flex flex-col items-center justify-center h-full gap-6">
+              {SECTIONS.map((id) => {
+                const label = id.charAt(0).toUpperCase() + id.slice(1);
+                return (
+                  <button
+                    key={id}
+                    onClick={() => {
+                      scrollTo(id);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="text-2xl font-display font-medium text-white/80 hover:text-white transition-colors"
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+              
+              <a
+                href={`${import.meta.env.BASE_URL}Ahmad_Raza_Resume.pdf`}
+                download
+                className="text-2xl font-display font-medium text-primary hover:text-white transition-colors mt-4"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Resume
+              </a>
+              
+              <div className="w-12 h-px bg-white/20 my-4" />
+              
+              <Link href="/blog">
+                <span 
+                  className="flex items-center gap-2 text-xl font-display font-medium text-white/80 hover:text-white transition-colors cursor-pointer"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <PenLine className="w-5 h-5" />
+                  Blog
+                </span>
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
