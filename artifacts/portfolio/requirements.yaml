@@ -1,0 +1,13 @@
+packages:
+  "framer-motion": "Animations, scroll effects, and performant mouse tracking"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility to merge tailwind classes"
+
+images:
+  - path: "artifacts/portfolio/public/images/profile-avatar.png"
+    description: "Abstract minimal gradient profile avatar, futuristic, deep cosmic blacks with glowing electric blue and violet energy waves, glassmorphism style, no face just abstract energy"
+    aspect_ratio: "1:1"
+
+notes:
+  - "Static single-page portfolio website, no API integration needed."
+  - "Uses Framer Motion for high-performance animations and smooth scroll reveals."

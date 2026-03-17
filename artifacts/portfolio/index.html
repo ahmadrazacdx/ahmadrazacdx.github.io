@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Ahmad Raza</title>
+    <link rel="icon" type="image/png" href="/images/code.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Copy code function for blog posts
+      window.copyCode = function(button) {
+        const wrapper = button.closest('.code-block-wrapper');
+        const code = wrapper.querySelector('code');
+        const text = code.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          const span = button.querySelector('span');
+          const originalText = span.innerText;
+          span.innerText = 'Copied!';
+          button.classList.add('copied');
+          setTimeout(() => {
+            span.innerText = originalText;
+            button.classList.remove('copied');
+          }, 2000);
+        });
+      };
+    </script>
+  </body>
+</html>

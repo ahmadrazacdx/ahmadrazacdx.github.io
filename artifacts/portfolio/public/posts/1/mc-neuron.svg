@@ -1,0 +1,77 @@
+<svg width="700" height="360" viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" style="background-color: white;">
+  <!-- Styles -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#000" />
+    </marker>
+  </defs>
+  
+  <!-- Labels at top -->
+  <text x="25" y="30" font-family="Arial" font-size="18" fill="#333">Inputs</text>
+  <text x="150" y="30" font-family="Arial" font-size="18" fill="#333">Weights</text>
+  
+  <!-- Input nodes (X values) -->
+  <text x="30" y="85" font-family="Times New Roman, serif" font-size="24" font-style="italic" fill="#000">X</text>
+  <text x="50" y="90" font-family="Times New Roman, serif" font-size="16" fill="#000">1</text>
+  
+  <text x="30" y="145" font-family="Times New Roman, serif" font-size="24" font-style="italic" fill="#000">X</text>
+  <text x="50" y="150" font-family="Times New Roman, serif" font-size="16" fill="#000">2</text>
+  
+  <text x="30" y="205" font-family="Times New Roman, serif" font-size="24" font-style="italic" fill="#000">X</text>
+  <text x="50" y="210" font-family="Times New Roman, serif" font-size="16" fill="#000">3</text>
+  
+  <!-- Dots for continuation -->
+  <circle cx="45" cy="232" r="2" fill="#000"/>
+  <circle cx="45" cy="248" r="2" fill="#000"/>
+  <circle cx="45" cy="262" r="2" fill="#000"/>
+  
+  <text x="30" y="325" font-family="Times New Roman, serif" font-size="24" font-style="italic" fill="#000">X</text>
+  <text x="50" y="330" font-family="Times New Roman, serif" font-size="16" fill="#000">N</text>
+  
+  <!-- Weight labels -->
+  <text x="165" y="115" font-family="Times New Roman, serif" font-size="24" font-style="italic" fill="#000">W</text>
+  <text x="185" y="117" font-family="Times New Roman, serif" font-size="16" fill="#000">1</text>
+  
+  <text x="165" y="155" font-family="Times New Roman, serif" font-size="24" font-style="italic" fill="#000">W</text>
+  <text x="185" y="158" font-family="Times New Roman, serif" font-size="16" fill="#000">2</text>
+  
+  <text x="165" y="200" font-family="Times New Roman, serif" font-size="24" font-style="italic" fill="#000">W</text>
+  <text x="185" y="200" font-family="Times New Roman, serif" font-size="16" fill="#000">3</text>
+  
+  <!-- Dots for weight continuation -->
+  <circle cx="175" cy="232" r="2" fill="#000"/>
+  <circle cx="175" cy="248" r="2" fill="#000"/>
+  <circle cx="175" cy="262" r="2" fill="#000"/>
+  
+  <text x="165" y="300" font-family="Times New Roman, serif" font-size="24" font-style="italic" fill="#000">W</text>
+  <text x="185" y="305" font-family="Times New Roman, serif" font-size="16" fill="#000">N</text>
+  
+  <!-- Connection lines from inputs to summation -->
+  <line x1="75" y1="80" x2="289" y2="170" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="75" y1="140" x2="281" y2="185" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="75" y1="200" x2="280" y2="210" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="75" y1="320" x2="285" y2="225" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Summation circle -->
+  <circle cx="330" cy="200" r="50" fill="none" stroke="#000" stroke-width="2"/>
+  <text x="315" y="210" font-family="Times New Roman, serif" font-size="40" fill="#000">∑</text>
+  
+  <!-- Line from summation to activation function -->
+  <line x1="380" y1="200" x2="460" y2="200" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="395" y="190" font-family="Arial" font-size="18" fill="#333">Sum</text>
+  
+  <!-- Activation function box -->
+  <rect x="460" y="159" width="100" height="70" fill="none" stroke="#000" stroke-width="2"/>
+  
+  <!-- Step function symbol inside box -->
+  <line x1="477" y1="209" x2="510" y2="209" stroke="#000" stroke-width="2"/>
+  <line x1="510" y1="210" x2="510" y2="180" stroke="#000" stroke-width="2"/>
+  <line x1="509" y1="179" x2="543" y2="179" stroke="#000" stroke-width="2"/>
+  
+  <!-- Output arrow -->
+  <line x1="560" y1="200" x2="646" y2="200" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="567" y="190" font-family="Arial" font-size="18" fill="#333">Output</text>
+  
+  <!-- Output variable -->
+  <text x="650" y="210" font-family="Times New Roman, serif" font-size="28" font-style="italic" fill="#000">y</text>
+</svg>
