@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Terminal, User } from "lucide-react";
+import { HighlightLink } from "./HighlightLink";
 
 function PortraitFrame() {
   return (
@@ -17,7 +18,7 @@ function PortraitFrame() {
         <div className="portrait-inner">
           {/* Replace src with your actual portrait image */}
           <img
-            src={`${import.meta.env.BASE_URL}images/profile_pic.jpg`}
+            src={`${import.meta.env.BASE_URL}images/prof_pic_2.png`}
             alt="Ahmad Raza"
             className="w-full h-full object-cover opacity-90"
             onError={(e) => {
@@ -46,7 +47,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-24 pb-8 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="grid lg:grid-cols-[1fr_auto] gap-12 xl:gap-20 items-center">
 
@@ -66,9 +67,9 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="text-6xl md:text-8xl lg:text-9xl font-display font-bold leading-[1.05] tracking-tighter mb-6"
+              className="text-7xl md:text-9xl lg:text-9xl font-display font-bold leading-[0.85] tracking-tighter mb-6"
             >
-              <span className="text-gradient">Ahmad</span> <br />
+              <span className="text-gradient">Ahmad</span> <br/>
               <span className="text-gradient">Raza</span>
             </motion.h1>
 
@@ -78,7 +79,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed"
             >
-              Final-year Software Engineering Undergraduate at Thal University Bhakkar, Pakistan.
+              Final-year Software Engineering Undergraduate at <HighlightLink text="Thal University Bhakkar" href="https://www.tu.edu.pk" external />, Pakistan.
             </motion.p>
 
             <motion.div

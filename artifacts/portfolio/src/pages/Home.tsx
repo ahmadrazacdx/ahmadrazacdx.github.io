@@ -1,4 +1,4 @@
-import { MouseGradient } from "@/components/MouseGradient";
+import { MouseHover } from "@/components/MouseHover";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -10,7 +10,7 @@ import { Contact } from "@/components/Contact";
 export default function Home() {
   return (
     <div className="relative min-h-screen selection:bg-primary/30">
-      <MouseGradient />
+      <MouseHover />
       
       {/* Content Wrapper */}
       <div className="relative z-10">

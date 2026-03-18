@@ -1,16 +1,17 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Award, BookOpen, Code2 } from "lucide-react";
+import { HighlightLink } from "./HighlightLink";
 
 export function About() {
-  const stats = [
-    { label: "CGPA", value: "3.83", icon: <GraduationCap className="w-5 h-5 text-primary" /> },
-    { label: "Projects Built", value: "5+", icon: <Code2 className="w-5 h-5 text-secondary" /> },
-    { label: "Specializations", value: "6+", icon: <Award className="w-5 h-5 text-accent" /> },
-    { label: "Technical Writings", value: "1", icon: <BookOpen className="w-5 h-5 text-primary" /> },
-  ];
+  // const stats = [
+  //   { label: "CGPA", value: "3.83", icon: <GraduationCap className="w-5 h-5 text-primary" /> },
+  //   { label: "Projects Built", value: "5+", icon: <Code2 className="w-5 h-5 text-secondary" /> },
+  //   { label: "Specializations", value: "6+", icon: <Award className="w-5 h-5 text-accent" /> },
+  //   { label: "Technical Writings", value: "1", icon: <BookOpen className="w-5 h-5 text-primary" /> },
+  // ];
 
   return (
-    <section id="about" className="py-24 relative">
+    <section id="about" className="py-16 relative">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -38,20 +39,20 @@ export function About() {
             
             <div className="space-y-5 text-lg text-muted-foreground leading-relaxed text-justify text-balance">
               <p>
-                My research interests lie in Causal Representation Learning, World Models, Representation Geometry and Multi-Agent LLM Systems with the goal of understanding how learning systems can build internal models of their environments and use them for reasoning and planning.
+                My research interests lie in <HighlightLink text="Causal Representation Learning" />, <HighlightLink text="World Models" />, <HighlightLink text="Representation Geometry" /> and <HighlightLink text="Multi-Agent LLM Systems" /> with the goal of understanding how learning systems can build internal models of their environments and use them for reasoning and planning.
               </p>
               <p>
                 To study these ideas rigorously, I work from first principles, implementing neural architectures from scratch. This approach allows me to closely examine the internal mechanics of deep learning systems, including gradient dynamics, representation geometry, and optimization behavior.
               </p>
               <p>
-                Besides AI, I find it interesting to read about Philosophy of Mind, Epistemology, Computational Neuroscience, and Cognitive Psychology. I spend my free time with Urdu Literature, play chess, and listen to Classical Ghazal & Bollywood Music.
+                Besides AI, I find it interesting to read about <HighlightLink text="Philosophy of Mind" href="https://en.wikipedia.org/wiki/Philosophy_of_mind"/>, <HighlightLink text="Epistemology" href="https://en.wikipedia.org/wiki/Epistemology"/>, <HighlightLink text="Computational Neuroscience" href="https://en.wikipedia.org/wiki/Computational_neuroscience"/>, and <HighlightLink text="Cognitive Psychology" href="https://en.wikipedia.org/wiki/Cognitive_psychology"/>. I spend my free time with Urdu Literature, play chess, and listen to Classical Ghazal & Bollywood Music.
               </p>
             </div>
           </div>
         </motion.div>
 
         {/* Stats Cards - Independent row below */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -71,7 +72,7 @@ export function About() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

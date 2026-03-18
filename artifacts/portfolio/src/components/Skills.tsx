@@ -3,17 +3,12 @@ import { Layers } from "lucide-react";
 
 export function Skills() {
   const row1 = [
-    "NumPy", "Pandas", "Matplotlib", "Plotly", "Seaborn", "Scikit-Learn", "XGBoost", "LightGBM", "CatBoost", "Optuna", "NLTK", "PyTorch", "fastai", "HuggingFace", "Transformers", "LangChain", "LangGraph",
+    "Python", "JavaScript", "HTML", "CSS", "MySQL", "Tableau", "Streamlit", "Postman", "AWS", "Azure", "GCP", "Docker", "Flask", "FastAPI", "Kubernetes", "CI/CD", "GitHub Actions", "DVC", "Mlflow", "Weights & Biases",
   ];
   const row2 = [
-    "Python", "JavaScript", "HTML", "CSS", "MySQL", "Git", "GitHub", "VS Code", 
-    "PowerBI", "Tableau", "Jupyter", "Kaggle", "Streamlit", "Gradio", "Postman"
+    "Python", "JavaScript", "HTML", "CSS", "MySQL", "Tableau", "Streamlit", "Postman", "AWS", "Azure", "GCP", "Docker", "Flask", "FastAPI", "Kubernetes", "CI/CD", "GitHub Actions", "DVC", "Mlflow", "Weights & Biases",
   ];
-  const row3 = [
-    "Docker", "Flask", "FastAPI", "Kubernetes", "CI/CD", "GitHub Actions", "DVC", "Mlflow", "Weights & Biases",
-    "AWS", "Azure", "GCP", "DevOps", "MLOps",
-  ];
-
+  
   const TechCard = ({ name }: { name: string }) => (
     <div className="flex items-center gap-3 px-5 py-3 glass-card whitespace-nowrap hover:scale-105 hover:border-secondary/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300 flex-shrink-0">
       <Layers className="w-4 h-4 text-secondary flex-shrink-0" />
@@ -22,7 +17,7 @@ export function Skills() {
   );
 
   return (
-    <section id="skills" className="py-24 relative">
+    <section id="skills" className="py-16 relative">
       <div className="max-w-7xl mx-auto px-6 mb-12">
         <motion.h2 
           initial={{ opacity: 0 }}
@@ -63,15 +58,6 @@ export function Skills() {
             <div className="flex gap-4 w-max animate-marquee-right">
               {[...row2, ...row2].map((tech, i) => (
                 <TechCard key={`r2-${i}`} name={tech} />
-              ))}
-            </div>
-          </div>
-
-          {/* Row 3 — scrolls right */}
-          <div className="overflow-hidden">
-            <div className="flex gap-4 w-max animate-marquee-right">
-              {[...row3, ...row3].map((tech, i) => (
-                <TechCard key={`r3-${i}`} name={tech} />
               ))}
             </div>
           </div>

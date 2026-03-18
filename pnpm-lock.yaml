@@ -246,6 +246,9 @@ importers:
       vaul:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      webgl-fluid-enhanced:
+        specifier: ^0.8.0
+        version: 0.8.0
       wouter:
         specifier: ^3.3.5
         version: 3.9.0(react@19.1.0)
@@ -2212,6 +2215,9 @@ packages:
       yaml:
         optional: true
 
+  webgl-fluid-enhanced@0.8.0:
+    resolution: {integrity: sha512-Yj3+AfQYC6bENe3mTpj1XExVfSZCG6pGxAqGXluUgdjCPCP8rvjrHXy4P5LChlJUgL8kf4E9dgmv5nLXjTJIAg==}
+
   wouter@3.9.0:
     resolution: {integrity: sha512-sF/od/PIgqEQBQcrN7a2x3MX6MQE6nW0ygCfy9hQuUkuB28wEZuu/6M5GyqkrrEu9M6jxdkgE12yDFsQMKos4Q==}
     peerDependencies:
@@ -3981,6 +3987,8 @@ snapshots:
       fsevents: 2.3.3
       jiti: 2.6.1
       lightningcss: 1.31.1
+
+  webgl-fluid-enhanced@0.8.0: {}
 
   wouter@3.9.0(react@19.1.0):
     dependencies:

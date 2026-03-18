@@ -12,14 +12,14 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 relative">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+    <section id="contact" className="py-16 relative">
+      <div className="max-w-3xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="glass-card p-12 md:p-20 relative overflow-hidden"
+          className="glass-card p-8 md:p-12 relative overflow-hidden"
         >
           {/* Subtle background glow */}
           <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-50" />

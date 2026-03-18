@@ -4,7 +4,7 @@ import { Link, useRoute } from "wouter";
 import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import { getPost, renderPost, type Heading } from "@/lib/posts";
 import { Navbar } from "@/components/Navbar";
-import { MouseGradient } from "@/components/MouseGradient";
+import { MouseHover } from "@/components/MouseHover";
 import "katex/dist/katex.min.css";
 import "prismjs/themes/prism-tomorrow.css";
 
@@ -91,7 +91,7 @@ export default function BlogPost() {
   if (!post) {
     return (
       <div className="relative min-h-screen">
-        <MouseGradient />
+        <MouseHover />
         <div className="relative z-10">
           <Navbar />
           <main className="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 lg:p-12 pt-36 pb-24 text-center">
@@ -109,7 +109,7 @@ export default function BlogPost() {
 
   return (
     <div className="relative min-h-screen">
-      <MouseGradient />
+      <MouseHover />
       <div className="relative z-10">
         <Navbar />
 
