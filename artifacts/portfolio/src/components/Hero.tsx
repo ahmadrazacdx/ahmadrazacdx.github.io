@@ -18,7 +18,7 @@ function PortraitFrame() {
         <div className="portrait-inner">
           {/* Replace src with your actual portrait image */}
           <img
-            src={`${import.meta.env.BASE_URL}images/prof_pic_2.png`}
+            src={`${import.meta.env.BASE_URL}images/profile_pic.jpeg`}
             alt="Ahmad Raza"
             className="w-full h-full object-cover opacity-90"
             onError={(e) => {
@@ -103,10 +103,15 @@ export function Hero() {
                 Get in Touch
               </button>
             </motion.div>
+
+            {/* Mobile/Tablet portrait */}
+            <div className="mt-10 flex justify-center lg:hidden">
+              <PortraitFrame />
+            </div>
           </div>
 
           {/* Right — Portrait */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex lg:justify-end">
             <PortraitFrame />
           </div>
         </div>

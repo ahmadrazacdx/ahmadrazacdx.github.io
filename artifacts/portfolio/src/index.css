@@ -78,15 +78,22 @@
 /* ── Portrait frame beam ─────────────────────────────────── */
 .portrait-beam-wrapper {
   position: relative;
-  width: 300px;
-  height: 400px;
+  width: min(74vw, 300px);
+  aspect-ratio: 3 / 4;
   border-radius: 40px;
+}
+
+@media (max-width: 640px) {
+  .portrait-beam-wrapper {
+    width: min(82vw, 300px);
+  }
 }
 
 @media (min-width: 1280px) {
   .portrait-beam-wrapper {
     width: 340px;
     height: 450px;
+    aspect-ratio: auto;
   }
 }
 
