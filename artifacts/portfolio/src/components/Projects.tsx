@@ -61,7 +61,7 @@ export function Projects() {
               </div>
               
               <h3 className="text-2xl font-display font-bold mb-3">{project.title}</h3>
-              <p className="text-muted-foreground flex-grow mb-8 leading-relaxed text-justify text-balance text-sm">
+              <p className="text-muted-foreground flex-grow mb-8 leading-relaxed text-justify-smooth text-sm">
                 {project.description}
               </p>
               

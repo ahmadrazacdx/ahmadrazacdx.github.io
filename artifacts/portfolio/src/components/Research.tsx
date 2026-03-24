@@ -79,7 +79,7 @@ export function Research() {
                     {pub.title}
                   </h3>
                   
-                  <p className="text-muted-foreground text-justify text-balance mb-6 leading-relaxed">
+                  <p className="text-muted-foreground text-justify-smooth mb-6 leading-relaxed">
                     {pub.abstract}
                   </p>
                   
@@ -142,7 +142,7 @@ export function Research() {
                 <BookOpen className="w-5 h-5 text-primary" />
               </div>
               <h4 className="text-lg font-display font-bold mb-3 group-hover:text-primary transition-colors">{area.title}</h4>
-              <p className="text-muted-foreground text-sm leading-relaxed text-justify text-balance mb-4">{area.description}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed text-justify-smooth mb-4">{area.description}</p>
               <div className="flex flex-wrap gap-2">
                 {area.tags.map(tag => (
                   <span key={tag} className="text-xs text-white/50 bg-white/5 px-2 py-0.5 rounded">{tag}</span>

@@ -26,7 +26,7 @@ export function Contact() {
           
           <div className="relative z-10">
             <h2 className="text-5xl md:text-7xl font-display font-bold mb-6 text-white">Let's Connect.</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4 text-justify text-balance">
+            <p className="text-xl text-muted-foreground max-w-xl mx-auto mb-4 text-justify-smooth">
               Open to research collaborations & internship opportunities. Always happy to talk about Deep Learning, AI research, Neuroscience, or Urdu Poetry. Feel free to reach out!
             </p>
             

@@ -57,6 +57,17 @@
     @apply bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-3xl relative overflow-hidden transition-all duration-300;
   }
   
+  .text-justify-smooth {
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+    word-spacing: normal;
+    letter-spacing: normal;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    overflow-wrap: break-word;
+  }
+  
   .glass-card:hover {
     @apply border-primary/40 bg-white/[0.04] shadow-[0_0_40px_-10px_rgba(139,92,246,0.2)];
   }

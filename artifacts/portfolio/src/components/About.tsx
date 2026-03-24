@@ -37,7 +37,7 @@ export function About() {
               <span className="text-muted-foreground">From First Principles.</span>
             </h2>
             
-            <div className="space-y-5 text-lg text-muted-foreground leading-relaxed text-justify text-balance">
+            <div className="space-y-5 text-lg text-muted-foreground leading-relaxed text-justify-smooth">
               <p>
                 My research interests lie in <HighlightLink text="Causal Representation Learning" />, <HighlightLink text="World Models" />, <HighlightLink text="Representation Geometry" /> and <HighlightLink text="Multi-Agent LLM Systems" /> with the goal of understanding how learning systems can build internal models of their environments and use them for reasoning and planning.
               </p>
