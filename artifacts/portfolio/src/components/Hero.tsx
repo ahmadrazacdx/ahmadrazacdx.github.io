@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, Terminal, User } from "lucide-react";
@@ -43,6 +44,52 @@ function PortraitFrame() {
 }
 
 export function Hero() {
+  const firstName = "Ahmad";
+  const lastName = "Raza.";
+  const fullName = `${firstName} ${lastName}`;
+  const [typedLength, setTypedLength] = useState(0);
+
+  useEffect(() => {
+    let rafId: number | undefined;
+    let startTime: number | null = null;
+    let pauseTimeout: number | undefined;
+
+    const TYPE_SPEED = 150; // ms per character
+    const PAUSE_AFTER = 5000; // ms pause after full name
+    const PAUSE_BEFORE = 400; // ms before typing starts
+
+    function animateType(time: number) {
+      if (startTime === null) startTime = time;
+      const elapsed = time - startTime;
+      const chars = Math.min(fullName.length, Math.floor(elapsed / TYPE_SPEED) + 1);
+      setTypedLength(chars);
+      if (chars < fullName.length) {
+        rafId = requestAnimationFrame(animateType);
+      } else {
+        pauseTimeout = window.setTimeout(() => {
+          setTypedLength(0);
+          startTime = null;
+          rafId = requestAnimationFrame(animateType);
+        }, PAUSE_AFTER);
+      }
+    }
+
+    pauseTimeout = window.setTimeout(() => {
+      rafId = requestAnimationFrame(animateType);
+    }, PAUSE_BEFORE);
+
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      if (pauseTimeout) clearTimeout(pauseTimeout);
+    };
+  }, [fullName]);
+
+  const firstTyped = firstName.slice(0, Math.min(typedLength, firstName.length));
+  const secondTyped =
+    typedLength > firstName.length
+      ? lastName.slice(0, Math.max(0, typedLength - firstName.length - 1))
+      : "";
+
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -70,8 +117,9 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-display font-bold leading-[0.9] sm:leading-[0.85] tracking-tighter mb-6"
             >
-              <span className="text-gradient">Ahmad</span> <br/>
-              <span className="text-gradient">Raza</span>
+              <span className="text-gradient inline-block min-w-[5ch]">{firstTyped || "\u00A0"}</span>
+              <br />
+              <span className="text-gradient inline-block min-w-[4ch]">{secondTyped || "\u00A0"}</span>
             </motion.h1>
 
             <motion.p
