@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { ArrowRight, Terminal, User } from "lucide-react";
 import { HighlightLink } from "./HighlightLink";
 
@@ -47,9 +48,9 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
-        <div className="grid lg:grid-cols-[1fr_auto] gap-12 xl:gap-20 items-center">
+    <section className="relative min-h-screen flex items-center pt-24 pb-24 md:pb-8 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-6 sm:gap-8 md:gap-12 xl:gap-20 items-center">
 
           {/* Left — Text content */}
           <div>
@@ -60,14 +61,14 @@ export function Hero() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary mb-6"
             >
               <Terminal className="w-4 h-4" />
-              <span className="text-sm font-medium tracking-wide uppercase">Deep Learning Practitioner & Researcher</span>
+              <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">Deep Learning Practitioner & Researcher</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="text-7xl md:text-9xl lg:text-9xl font-display font-bold leading-[0.85] tracking-tighter mb-6"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-display font-bold leading-[0.9] sm:leading-[0.85] tracking-tighter mb-6"
             >
               <span className="text-gradient">Ahmad</span> <br/>
               <span className="text-gradient">Raza</span>
@@ -77,7 +78,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed"
             >
               Final-year Software Engineering Undergraduate at <HighlightLink text="Thal University Bhakkar" href="https://www.tu.edu.pk" external />, Pakistan.
             </motion.p>
@@ -88,17 +89,16 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-col sm:flex-row items-start gap-4"
             >
-              <button
-                onClick={() => scrollTo("projects")}
-                className="px-8 py-4 rounded-full font-semibold bg-white text-black flex items-center justify-center gap-2 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all duration-300"
-              >
-                View Projects
-                <ArrowRight className="w-4 h-4" />
-              </button>
+              <Link href="/projects">
+                <span className="px-5 py-3 sm:px-8 sm:py-4 rounded-full text-sm sm:text-base font-semibold bg-white text-black flex items-center justify-center gap-2 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all duration-300 cursor-pointer">
+                  View Projects
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
 
               <button
                 onClick={() => scrollTo("contact")}
-                className="px-8 py-4 rounded-full font-semibold border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/40 flex items-center justify-center gap-2 transition-all duration-300 backdrop-blur-md"
+                className="px-5 py-3 sm:px-8 sm:py-4 rounded-full text-sm sm:text-base font-semibold border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/40 flex items-center justify-center gap-2 transition-all duration-300 backdrop-blur-md"
               >
                 Get in Touch
               </button>

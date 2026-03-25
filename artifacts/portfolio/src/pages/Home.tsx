@@ -2,9 +2,7 @@ import { MouseHover } from "@/components/MouseHover";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
-import { Research } from "@/components/Research";
 import { Skills } from "@/components/Skills";
-import { Projects } from "@/components/Projects";
 import { Contact } from "@/components/Contact";
 
 export default function Home() {
@@ -13,13 +11,11 @@ export default function Home() {
       <MouseHover />
       
       {/* Content Wrapper */}
-      <div className="relative z-10">
+      <div className="relative z-10 pb-28 md:pb-0">
         <Navbar />
         <Hero />
         <About />
         <Skills />
-        <Projects />
-        <Research />
         <Contact />
       </div>
     </div>

@@ -113,8 +113,8 @@ export default function BlogPost() {
       <div className="relative z-10">
         <Navbar />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-36 pb-24">
-          <div className="grid lg:grid-cols-[280px_1fr] gap-12">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-8 pt-32 sm:pt-36 pb-28 md:pb-24">
+          <div className="grid gap-8 lg:gap-12 lg:grid-cols-[260px_minmax(0,1fr)]">
             {/* Left Sidebar - TOC */}
             {post.headings.length > 0 && (
               <aside className="hidden lg:block">
@@ -136,7 +136,7 @@ export default function BlogPost() {
             )}
 
             {/* Main Content */}
-            <main className="max-w-3xl">
+            <main className="max-w-3xl w-full min-w-0">
               {/* Back link - mobile only */}
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
@@ -183,7 +183,7 @@ export default function BlogPost() {
                 </h1>
 
                 {post.description && (
-                  <p className="text-xl text-muted-foreground leading-relaxed">
+                  <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
                     {post.description}
                   </p>
                 )}

@@ -13,31 +13,31 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-16 relative">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="glass-card p-8 md:p-12 relative overflow-hidden"
+          className="glass-card p-6 sm:p-8 md:p-12 relative overflow-hidden"
         >
           {/* Subtle background glow */}
           <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-50" />
           
           <div className="relative z-10">
-            <h2 className="text-5xl md:text-7xl font-display font-bold mb-6 text-white">Let's Connect.</h2>
-            <p className="text-xl text-muted-foreground max-w-xl mx-auto mb-4 text-justify-smooth">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white">Let's Connect.</h2>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-4 text-justify-smooth">
               Open to research collaborations & internship opportunities. Always happy to talk about Deep Learning, AI research, Neuroscience, or Urdu Poetry. Feel free to reach out!
             </p>
             
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
               {links.map((link, idx) => (
                 <a 
                   key={idx}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-6 py-4 glass-card hover:bg-white/10 hover:scale-105 hover:border-white/30 transition-all duration-300 text-white font-medium"
+                  className="flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-3 sm:py-4 glass-card hover:bg-white/10 hover:scale-105 hover:border-white/30 transition-all duration-300 text-white text-sm sm:text-base font-medium"
                 >
                   {link.icon}
                   <span>{link.label}</span>

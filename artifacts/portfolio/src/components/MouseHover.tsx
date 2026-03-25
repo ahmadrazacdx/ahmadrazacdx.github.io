@@ -1,174 +1,157 @@
 import { useEffect, useRef } from "react";
 
-type SmokeParticle = {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  size: number;
-  life: number;
-  maxLife: number;
-  hue: number;
-};
-
 export function MouseHover() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<SmokeParticle[]>([]);
-  const mousePos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-  const prevMousePos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-  const mouseVelocity = useRef({ x: 0, y: 0 });
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
+  const pulseRef = useRef<HTMLDivElement>(null);
+
+  const mouse = useRef({ x: 0, y: 0 });
+  const ring = useRef({ x: 0, y: 0 });
   const rafRef = useRef<number>(0);
-  const lastFrameTimeRef = useRef(0);
+  const interactiveRef = useRef(false);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    const dot = dotRef.current;
+    const ringEl = ringRef.current;
+    const pulse = pulseRef.current;
+    if (!dot || !ringEl || !pulse) return;
 
     const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) return;
+    if (isCoarsePointer || prefersReducedMotion) return;
 
-    const maxParticles = isCoarsePointer ? 180 : 360;
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    mouse.current = { x: cx, y: cy };
+    ring.current = { x: cx, y: cy };
 
-    const resizeCanvas = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
+    let pointerVisible = false;
 
-    const spawnSmoke = (count: number, x: number, y: number) => {
-      const list = particlesRef.current;
-      for (let i = 0; i < count; i += 1) {
-        const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 1.4 + 0.1;
-        const velocityInfluenceX = mouseVelocity.current.x * 0.045;
-        const velocityInfluenceY = mouseVelocity.current.y * 0.045;
-        const maxLife = Math.random() * 32 + 26;
-
-        list.push({
-          x,
-          y,
-          vx: Math.cos(angle) * speed + velocityInfluenceX,
-          vy: Math.sin(angle) * speed + velocityInfluenceY - 0.25,
-          size: Math.random() * 28 + 18,
-          life: maxLife,
-          maxLife,
-          hue: 205 + Math.random() * 70,
-        });
-      }
-
-      if (list.length > maxParticles) {
-        list.splice(0, list.length - maxParticles);
-      }
+    const setTransforms = () => {
+      dot.style.transform = `translate3d(${mouse.current.x}px, ${mouse.current.y}px, 0) translate(-50%, -50%)`;
+      ringEl.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0) translate(-50%, -50%) scale(${interactiveRef.current ? 1.25 : 1})`;
     };
 
     const onPointerMove = (e: PointerEvent) => {
-      prevMousePos.current = mousePos.current;
-      mousePos.current = { x: e.clientX, y: e.clientY };
-      mouseVelocity.current = {
-        x: mousePos.current.x - prevMousePos.current.x,
-        y: mousePos.current.y - prevMousePos.current.y,
-      };
-
-      const speed = Math.hypot(mouseVelocity.current.x, mouseVelocity.current.y);
-      const spawnCount = Math.max(3, Math.min(12, Math.floor(speed * 0.35) + 3));
-      spawnSmoke(spawnCount, e.clientX, e.clientY);
-    };
-
-    const onPointerDown = (e: PointerEvent) => {
-      spawnSmoke(20, e.clientX, e.clientY);
-    };
-
-    const animate = (time: number) => {
-      const lastTime = lastFrameTimeRef.current || time;
-      const delta = Math.min((time - lastTime) / 16.67, 2);
-      lastFrameTimeRef.current = time;
-
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      ctx.clearRect(0, 0, width, height);
-
-      const particles = particlesRef.current;
-      for (let i = particles.length - 1; i >= 0; i -= 1) {
-        const particle = particles[i];
-        particle.life -= delta;
-
-        if (particle.life <= 0) {
-          particles.splice(i, 1);
-          continue;
-        }
-
-        particle.x += particle.vx * delta;
-        particle.y += particle.vy * delta;
-        particle.vx *= 0.965;
-        particle.vy = particle.vy * 0.965 - 0.008 * delta;
-
-        const lifeRatio = particle.life / particle.maxLife;
-        const radius = particle.size * (1 + (1 - lifeRatio) * 0.7);
-        const alpha = 0.18 * lifeRatio;
-        const coreAlpha = 0.24 * lifeRatio;
-
-        const gradient = ctx.createRadialGradient(
-          particle.x,
-          particle.y,
-          radius * 0.08,
-          particle.x,
-          particle.y,
-          radius,
-        );
-        gradient.addColorStop(0, `hsla(${particle.hue}, 94%, 66%, ${coreAlpha})`);
-        gradient.addColorStop(0.35, `hsla(${particle.hue + 12}, 90%, 58%, ${alpha})`);
-        gradient.addColorStop(1, "hsla(210, 100%, 60%, 0)");
-
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, radius, 0, Math.PI * 2);
-        ctx.fill();
+      pointerVisible = true;
+      mouse.current.x = e.clientX;
+      mouse.current.y = e.clientY;
+      if (dot.style.opacity !== "1") {
+        dot.style.opacity = "1";
+        ringEl.style.opacity = "1";
       }
 
-      // Keep subtle motion alive even when pointer is idle.
-      if (particles.length < 6) {
-        spawnSmoke(1, mousePos.current.x, mousePos.current.y);
-      }
+      const target = e.target as HTMLElement | null;
+      interactiveRef.current = Boolean(
+        target?.closest("a, button, [role='button'], input, textarea, select, summary, .cursor-magnetic")
+      );
 
-      mouseVelocity.current.x *= 0.88;
-      mouseVelocity.current.y *= 0.88;
+      dot.style.background = interactiveRef.current ? "rgba(192,132,252,0.95)" : "rgba(148,163,255,0.95)";
+      ringEl.style.borderColor = interactiveRef.current ? "rgba(192,132,252,0.55)" : "rgba(148,163,255,0.45)";
+      ringEl.style.boxShadow = interactiveRef.current
+        ? "0 0 34px rgba(192,132,252,0.28), inset 0 0 18px rgba(192,132,252,0.12)"
+        : "0 0 26px rgba(148,163,255,0.20), inset 0 0 14px rgba(148,163,255,0.08)";
 
+      setTransforms();
+    };
+
+    const onPointerDown = () => {
+      pulse.style.transition = "none";
+      pulse.style.opacity = "0.35";
+      pulse.style.transform = `translate3d(${mouse.current.x}px, ${mouse.current.y}px, 0) translate(-50%, -50%) scale(0.4)`;
+
+      requestAnimationFrame(() => {
+        pulse.style.transition = "transform 420ms ease, opacity 420ms ease";
+        pulse.style.opacity = "0";
+        pulse.style.transform = `translate3d(${mouse.current.x}px, ${mouse.current.y}px, 0) translate(-50%, -50%) scale(1.8)`;
+      });
+    };
+
+    const onPointerLeave = () => {
+      if (!pointerVisible) return;
+      dot.style.opacity = "0";
+      ringEl.style.opacity = "0";
+    };
+
+    const onPointerEnter = () => {
+      if (!pointerVisible) return;
+      dot.style.opacity = "1";
+      ringEl.style.opacity = "1";
+    };
+
+    const animate = () => {
+      ring.current.x += (mouse.current.x - ring.current.x) * 0.22;
+      ring.current.y += (mouse.current.y - ring.current.y) * 0.22;
+
+      ringEl.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0) translate(-50%, -50%) scale(${interactiveRef.current ? 1.25 : 1})`;
       rafRef.current = requestAnimationFrame(animate);
     };
 
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     window.addEventListener("pointerdown", onPointerDown, { passive: true });
+    window.addEventListener("pointerleave", onPointerLeave, { passive: true });
+    window.addEventListener("pointerenter", onPointerEnter, { passive: true });
 
+    setTransforms();
     rafRef.current = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("pointerleave", onPointerLeave);
+      window.removeEventListener("pointerenter", onPointerEnter);
       cancelAnimationFrame(rafRef.current);
-      particlesRef.current = [];
     };
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 pointer-events-none"
-      style={{
-        zIndex: 0,
-        mixBlendMode: "screen",
-        opacity: 0.85,
-      }}
-    />
+    <>
+      <div
+        ref={pulseRef}
+        className="fixed pointer-events-none"
+        style={{
+          zIndex: 0,
+          width: "34px",
+          height: "34px",
+          borderRadius: "9999px",
+          border: "1px solid rgba(192,132,252,0.45)",
+          opacity: 0,
+          mixBlendMode: "screen",
+          transform: "translate3d(0,0,0) translate(-50%, -50%) scale(0.4)",
+        }}
+      />
+      <div
+        ref={ringRef}
+        className="fixed pointer-events-none"
+        style={{
+          zIndex: 0,
+          width: "30px",
+          height: "30px",
+          borderRadius: "9999px",
+          border: "1px solid rgba(148,163,255,0.45)",
+          boxShadow: "0 0 26px rgba(148,163,255,0.20), inset 0 0 14px rgba(148,163,255,0.08)",
+          opacity: 0,
+          transition: "opacity 180ms ease, border-color 180ms ease, box-shadow 180ms ease",
+          mixBlendMode: "screen",
+          transform: "translate3d(0,0,0) translate(-50%, -50%)",
+        }}
+      />
+      <div
+        ref={dotRef}
+        className="fixed pointer-events-none"
+        style={{
+          zIndex: 0,
+          width: "8px",
+          height: "8px",
+          borderRadius: "9999px",
+          background: "rgba(148,163,255,0.95)",
+          boxShadow: "0 0 20px rgba(148,163,255,0.45)",
+          opacity: 0,
+          transition: "opacity 150ms ease, background 180ms ease",
+          mixBlendMode: "screen",
+          transform: "translate3d(0,0,0) translate(-50%, -50%)",
+        }}
+      />
+    </>
   );
 }

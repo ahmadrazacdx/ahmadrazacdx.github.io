@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Globe, Cpu } from "lucide-react";
 
 export function Projects() {
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+
   const projects = [
     {
       title: "Seq Modeling From Scratch",
@@ -9,7 +12,8 @@ export function Projects() {
       tech: ["Python", "NumPy", "Math"],
       github: "https://github.com/ahmadrazacdx/seq-modeling-from-scratch",
       demo: null,
-      date: "Nov 2025"
+      date: "Nov 2025",
+      accent: "#facc15"
     },
     {
       title: "NeuroScope",
@@ -17,7 +21,8 @@ export function Projects() {
       tech: ["Python", "NumPy", "Matplotlib", "PyPI"],
       github: "https://github.com/ahmadrazacdx/neuro-scope",
       demo: "https://neuroscope.dev/",
-      date: "Sep 2025"
+      date: "Sep 2025",
+      accent: "#38bdf8"
     },
     {
       title: "House Oracle",
@@ -25,7 +30,8 @@ export function Projects() {
       tech: ["Python", "Flask", "XGBoost", "Optuna", "JavaScript"],
       github: "https://github.com/ahmadrazacdx/house-oracle",
       demo: "https://house-oracle.pages.dev/",
-      date: "Apr 2025"
+      date: "Apr 2025",
+      accent: "#34d399"
     }
   ];
 
@@ -44,18 +50,30 @@ export function Projects() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, idx) => (
+          {projects.map((project, idx) => {
+            const isHovered = hoveredProject === idx;
+
+            return (
             <motion.div
               key={idx}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
+              onMouseEnter={() => setHoveredProject(idx)}
+              onMouseLeave={() => setHoveredProject(null)}
               className="glass-card p-8 flex flex-col h-full group hover:-translate-y-2 transition-transform duration-300"
+              style={{ borderColor: isHovered ? project.accent : "rgba(255,255,255,0.1)" }}
             >
               <div className="flex items-start justify-between mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-colors">
-                  <Cpu className="w-6 h-6 text-white group-hover:text-primary transition-colors" />
+                <div
+                  className="w-12 h-12 rounded-2xl bg-white/5 border flex items-center justify-center transition-colors"
+                  style={{ borderColor: isHovered ? project.accent : "rgba(255,255,255,0.1)" }}
+                >
+                  <Cpu
+                    className="w-6 h-6 transition-colors"
+                    style={{ color: isHovered ? project.accent : "#ffffff" }}
+                  />
                 </div>
                 <span className="text-xs text-muted-foreground font-medium">{project.date}</span>
               </div>
@@ -86,7 +104,8 @@ export function Projects() {
                 </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

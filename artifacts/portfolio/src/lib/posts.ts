@@ -24,16 +24,16 @@ marked.use(
   })
 );
 
-// Pre-process LaTeX to handle aligned environments properly
+// Pre-process display math so marked-katex can reliably parse multiline blocks
 function preprocessLatex(content: string): string {
-  // Replace $$\begin{aligned}...\end{aligned}$$ with proper handling
-  return content.replace(
-    /\$\$\s*\\begin\{(aligned|align)\}([\s\S]*?)\\end\{(aligned|align)\}\s*\$\$/g,
-    (match, env1, body, env2) => {
-      // Wrap in display math delimiters that KaTeX can handle
-      return `$$\\begin{${env1}}${body}\\end{${env2}}$$`;
-    }
-  );
+  return content.replace(/\$\$([\s\S]*?)\$\$/g, (_match, body: string) => {
+    const normalized = body
+      .replace(/\r?\n/g, " ")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+
+    return `$$${normalized}$$`;
+  });
 }
 
 // Custom renderer for code blocks with syntax highlighting and copy button
@@ -153,7 +153,10 @@ export function renderPost(content: string): string {
   const processed = preprocessLatex(content);
   const result = marked(processed);
   if (typeof result === 'string') {
-    return result;
+    return result.replace(
+      /<p>\s*(<span class="katex-display">[\s\S]*?<\/span>)\s*<\/p>/g,
+      '<div class="katex-display-wrap">$1</div>'
+    );
   }
   throw new Error('marked returned a Promise, expected string');
 }

@@ -14,17 +14,17 @@ export default function Blog() {
       <div className="relative z-10">
         <Navbar />
 
-        <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-36 pb-24">
+        <main className="max-w-4xl mx-auto px-3 sm:px-6 md:px-8 pt-32 sm:pt-36 pb-28 md:pb-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             className="mb-16"
           >
-            <h1 className="text-5xl md:text-7xl font-display font-bold mb-5">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-5">
               Technical Writings & Research
             </h1>
-            <p className="text-xl text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
               Articles & Blogs on Machine Learning, Deep Learning, and Artificial Intelligence.
             </p>
           </motion.div>
@@ -38,7 +38,7 @@ export default function Blog() {
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
               >
                 <Link href={`/blog/${post.slug}`}>
-                  <div className="glass-card p-8 group cursor-pointer hover:-translate-y-1 transition-transform duration-300">
+                  <div className="glass-card p-5 sm:p-6 md:p-8 group cursor-pointer hover:-translate-y-1 transition-transform duration-300">
                     <div className="flex items-center gap-3 mb-4">
                       <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <Calendar className="w-3.5 h-3.5" />
@@ -60,7 +60,7 @@ export default function Blog() {
                       </div>
                     </div>
 
-                    <h2 className="text-2xl font-display font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                    <h2 className="text-xl sm:text-2xl font-display font-bold mb-3 group-hover:text-primary transition-colors duration-300">
                       {post.title}
                     </h2>
 
