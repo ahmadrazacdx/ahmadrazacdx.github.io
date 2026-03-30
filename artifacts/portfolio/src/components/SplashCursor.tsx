@@ -26,7 +26,7 @@ export default function SplashCursor({
   PRESSURE = 0.1,
   PRESSURE_ITERATIONS = 20,
   CURL = 3,
-  SPLAT_RADIUS ,
+  SPLAT_RADIUS = 0.2,
   SPLAT_FORCE = 4000,
   SHADING = true,
   COLOR_UPDATE_SPEED = 10,
