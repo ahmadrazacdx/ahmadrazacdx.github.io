@@ -25,7 +25,7 @@ export function Skills() {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-display font-bold text-center"
         >
-          My Full Tech Stack
+          My Tech Stack
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}

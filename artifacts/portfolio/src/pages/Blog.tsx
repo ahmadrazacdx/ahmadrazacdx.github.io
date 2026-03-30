@@ -3,14 +3,14 @@ import { Link } from "wouter";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
 import { getAllPosts } from "@/lib/posts";
 import { Navbar } from "@/components/Navbar";
-import { MouseHover } from "@/components/MouseHover";
+import SplashCursor from "@/components/SplashCursor";
 
 export default function Blog() {
   const posts = getAllPosts();
 
   return (
     <div className="relative min-h-screen">
-      <MouseHover />
+      <SplashCursor />
       <div className="relative z-10">
         <Navbar />
 
