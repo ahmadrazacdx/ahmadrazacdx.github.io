@@ -108,7 +108,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary mb-6"
             >
               <Terminal className="w-4 h-4" />
-              <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">Deep Learning Practitioner & Researcher</span>
+              <span className="text-xs sm:text-sm font-medium tracking-wide uppercase">Deep Learning Engineer & Researcher</span>
             </motion.div>
 
             <motion.h1

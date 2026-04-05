@@ -39,7 +39,7 @@ export function About() {
             
             <div className="space-y-5 text-lg text-muted-foreground leading-relaxed text-justify-smooth">
               <p>
-                My research interests lie in <HighlightLink text="Causal Representation Learning" />, <HighlightLink text="World Models" />, <HighlightLink text="Representation Geometry" /> and <HighlightLink text="Multi-Agent LLM Systems" /> with the goal of understanding how learning systems can build internal models of their environments and use them for reasoning and planning.
+                My research interests lie in <HighlightLink text="Representation Learning" />, <HighlightLink text="World Models" />, <HighlightLink text="Representation Geometry" /> and <HighlightLink text="Multi-Agent LLM Systems" /> with the goal of understanding how learning systems can build internal models of their environments and use them for reasoning and planning.
               </p>
               <p>
                 To study these ideas rigorously, I work from first principles, implementing neural architectures from scratch. This approach allows me to closely examine the internal mechanics of deep learning systems, including gradient dynamics, representation geometry, and optimization behavior.
