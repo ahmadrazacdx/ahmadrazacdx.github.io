@@ -169,8 +169,9 @@ export function Certificates() {
                 <img
                   src={cert.image}
                   alt={`${cert.title} certificate`}
-                  className={`w-full h-full object-cover transition-transform duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
+                  className={`w-full h-full object-cover rounded-lg transition-transform duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface SplashCursorProps {
   SIM_RESOLUTION?: number;
@@ -35,8 +35,29 @@ export default function SplashCursor({
 }: SplashCursorProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameId = useRef<number | null>(null);
+  const [isEnabled, setIsEnabled] = useState(false);
 
   useEffect(() => {
+    const reducedMotionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mobileMedia = window.matchMedia('(hover: none), (pointer: coarse), (max-width: 1023px)');
+
+    const updateEnabledState = () => {
+      setIsEnabled(!reducedMotionMedia.matches && !mobileMedia.matches);
+    };
+
+    updateEnabledState();
+    reducedMotionMedia.addEventListener('change', updateEnabledState);
+    mobileMedia.addEventListener('change', updateEnabledState);
+
+    return () => {
+      reducedMotionMedia.removeEventListener('change', updateEnabledState);
+      mobileMedia.removeEventListener('change', updateEnabledState);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isEnabled) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -672,12 +693,17 @@ export default function SplashCursor({
       window.removeEventListener('touchend', handleTouchEnd);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isEnabled]);
+
+  if (!isEnabled) {
+    return null;
+  }
 
   return (
     <canvas
       ref={canvasRef}
-      style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 9999 }}
+      // Keep the splash effect behind foreground UI layers (which use z-10 in page shells).
+      style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1 }}
     />
   );
 }

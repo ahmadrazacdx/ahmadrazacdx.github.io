@@ -1,15 +1,17 @@
+import { Suspense, lazy } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import SplashCursor from "@/components/SplashCursor";
-import NotFound from "@/pages/not-found";
-import Home from "@/pages/Home";
-import Blog from "@/pages/Blog";
-import BlogPost from "@/pages/BlogPost";
-import ProjectsPage from "@/pages/ProjectsPage";
-import ResearchPage from "@/pages/ResearchPage";
-import CertificatesPage from "@/pages/CertificatesPage";
+
+const NotFound = lazy(() => import("@/pages/not-found"));
+const Home = lazy(() => import("@/pages/Home"));
+const Blog = lazy(() => import("@/pages/Blog"));
+const BlogPost = lazy(() => import("@/pages/BlogPost"));
+const ProjectsPage = lazy(() => import("@/pages/ProjectsPage"));
+const ResearchPage = lazy(() => import("@/pages/ResearchPage"));
+const CertificatesPage = lazy(() => import("@/pages/CertificatesPage"));
 
 const queryClient = new QueryClient();
 
@@ -30,13 +32,19 @@ function Router() {
   );
 }
 
+function AppShellFallback() {
+  return <div className="min-h-screen" />;
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <SplashCursor />
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Router />
+          <Suspense fallback={<AppShellFallback />}>
+            <Router />
+          </Suspense>
         </WouterRouter>
         <Toaster />
       </TooltipProvider>
