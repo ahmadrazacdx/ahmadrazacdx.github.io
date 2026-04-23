@@ -4,10 +4,10 @@ import { ExternalLink, FileText, BookOpen } from "lucide-react";
 export function Research() {
   const writings = [
     {
-      title: "EduRAG: Verified and Stateless Cognitive Load-Aware Adaptation for Retrieval-Augmented Generation",
+      title: "Transformation-Aware Verification and Stateless Cognitive Adaptation for Retrieval-Augmented Generation",
       venue: "Proposed Work · Summer 2026",
-      abstract: "Educational Retrieval-Augmented Generation (RAG) systems face a fundamental, unaddressed tension: knowledge grounding mechanisms assume output should approximate source form, but pedagogical effectiveness demands cognitive-level transformation — simplification, analogy, and instantiation. This research presents EduRAG, a lightweight offline-first RAG architecture addressing this Adaptation-Grounding Tension through three primary contributions (CLAG, AGR, ERSA) and two application demonstrations (PCO, CAQ).",
-      tags: ["AI in Education", "RAG", "Cognitive Adaptation", "RAG Evaluation"],
+      abstract: "RAG systems face a fundamental limitation: existing verification frameworks require generated content to match the surface form of source knowledge. This assumption fails for transformation-heavy tasks where faithful outputs are semantically entailed but surface-divergent. This research presents two papers: TAV, a transformation-aware verification framework that introduces the DERIVED category grounded in natural deduction, and CLAG, a stateless cognitive load-aware generation method that estimates learner level directly from query-derived signals without persistent user modeling.",
+      tags: ["RAG", "Verification", "Educational AI", "Cognitive Load Theory"],
       pdf: `${import.meta.env.BASE_URL}research_proposal.pdf`,
       link: undefined,
       featured: true
