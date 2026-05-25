@@ -128,7 +128,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed"
             >
-              Final-year Software Engineering Undergraduate at <HighlightLink text="Thal University Bhakkar" href="https://www.tu.edu.pk" external />, Pakistan.
+              Software Engineering Graduate @ <HighlightLink text="Thal University Bhakkar" href="https://www.tu.edu.pk" external />, Pakistan.
             </motion.p>
 
             <motion.div

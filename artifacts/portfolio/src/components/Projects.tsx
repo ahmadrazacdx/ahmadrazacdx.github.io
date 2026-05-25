@@ -6,6 +6,17 @@ export function Projects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   const projects = [
+    
+    {
+      title: "Sage",
+      description: "An Offline-first multi-agent academic assistant using Retrieval-Augmented Generation with Tool-Integrated Workflows. Runs via local dual model inference (llama.cpp) and a React frontend with production grade orchestration and persistence. This is final year project for my BS Software Engineering degree.",
+      badge: "FYP",
+      tech: ["LangChain", "LangGraph", "llama.cpp", "FastAPI", "React"],
+      github: "https://github.com/ahmadrazacdx/Sage",
+      demo: null,
+      date: "Feb–May 2026",
+      accent: "#a78bfa"
+    },
     {
       title: "Seq Modeling From Scratch",
       description: "Implemented RNN, LSTM, and GRU from first principles without auto-differentiation frameworks. Manually derived and coded forward/backward passes (BPTT) and built Seq2Seq models with Bahdanau & Luong attention for language modeling.",
@@ -33,6 +44,7 @@ export function Projects() {
       date: "Apr 2025",
       accent: "#34d399"
     }
+    ,
   ];
 
   return (
@@ -78,7 +90,22 @@ export function Projects() {
                 <span className="text-xs text-muted-foreground font-medium">{project.date}</span>
               </div>
               
-              <h3 className="text-2xl font-display font-bold mb-3">{project.title}</h3>
+              <h3 className="text-2xl font-display font-bold mb-3">
+                {project.title}
+                {project.badge && (
+                  <span
+                    className="ml-3 inline-flex items-center justify-center text-xs font-semibold px-2 py-0.5 rounded-full shadow-sm ring-1 ring-white/10 backdrop-blur-sm uppercase tracking-wider transform -translate-y-0.5"
+                    style={{
+                      background: project.accent,
+                      color: "#ffffff",
+                      boxShadow: `0 6px 20px ${project.accent}33`,
+                      border: "1px solid rgba(255,255,255,0.08)",
+                    }}
+                  >
+                    {project.badge}
+                  </span>
+                )}
+              </h3>
               <p className="text-muted-foreground flex-grow mb-8 leading-relaxed text-justify-smooth text-sm">
                 {project.description}
               </p>
@@ -91,7 +118,6 @@ export function Projects() {
                     </span>
                   ))}
                 </div>
-                
                 <div className="flex items-center gap-4 pt-6 border-t border-white/10">
                   <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors">
                     <Github className="w-4 h-4" /> Code
