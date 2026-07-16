@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { PenLine } from "lucide-react";
+import { ChevronDown, FileDown, FileText, PenLine } from "lucide-react";
 import { createPortal } from "react-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const SCROLL_SECTIONS = ["about"] as const;
 
@@ -16,6 +22,7 @@ export function Navbar() {
 
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileDocumentsOpen, setMobileDocumentsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -59,6 +66,10 @@ export function Navbar() {
   }, [location]);
 
   useEffect(() => {
+    setMobileDocumentsOpen(false);
+  }, [location]);
+
+  useEffect(() => {
     setMounted(true);
   }, []);
 
@@ -91,6 +102,9 @@ export function Navbar() {
 
   const mobileMenuItemClass =
     "block w-full px-1 py-2 text-left text-sm font-medium text-[#cfcfd6] transition-colors duration-200 hover:text-white";
+
+  const documentLinkClass =
+    "flex w-full items-center gap-2 rounded-lg px-2 py-1 text-sm text-[#d7d7df] transition-colors duration-200 hover:bg-white/5 hover:text-white";
 
   const aboutActive = isHome;
 
@@ -180,14 +194,42 @@ export function Navbar() {
           </li>
 
           <li className="flex-shrink-0">
-            <a
-              href={`${import.meta.env.BASE_URL}Ahmad_Raza_Resume.pdf`}
-              download
-              className={baseItemClass}
-              title="Download Resume"
-            >
-              <span className="relative z-10">Resume</span>
-            </a>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  type="button"
+                  className={baseItemClass}
+                  aria-label="Open professional documents menu"
+                >
+                  <span className="relative z-10 inline-flex items-center gap-1.5">
+                    Profile
+                    <ChevronDown className="h-3.5 w-3.5 opacity-70" />
+                  </span>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center" sideOffset={8} className="min-w-[10.25rem] rounded-2xl border border-white/10 bg-[#121214]/95 p-1.25 text-white shadow-[0_18px_48px_rgba(0,0,0,0.34)] backdrop-blur-xl">
+                <DropdownMenuItem asChild>
+                  <a
+                    href={`${import.meta.env.BASE_URL}Ahmad_Raza_Resume.pdf`}
+                    download
+                    className={documentLinkClass}
+                  >
+                    <FileDown className="h-4 w-4 text-white/75" />
+                    <span>Resume</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a
+                    href={`${import.meta.env.BASE_URL}Ahmad_Raza_CV.pdf`}
+                    download
+                    className={documentLinkClass}
+                  >
+                    <FileText className="h-4 w-4 text-white/75" />
+                    <span>CV</span>
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </li>
 
           <li className="mx-1 h-4 w-px rounded-full bg-white/10" />
@@ -296,14 +338,35 @@ export function Navbar() {
                   </li>
 
                   <li>
-                    <a
-                      href={`${import.meta.env.BASE_URL}Ahmad_Raza_Resume.pdf`}
-                      download
-                      onClick={closeMobileMenu}
-                      className={mobileMenuItemClass}
+                    <button
+                      type="button"
+                      onClick={() => setMobileDocumentsOpen((open) => !open)}
+                      className={`${mobileMenuItemClass} flex items-center justify-between`}
+                      aria-expanded={mobileDocumentsOpen}
                     >
-                      Resume
-                    </a>
+                      <span>Profile</span>
+                      <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileDocumentsOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {mobileDocumentsOpen && (
+                      <div className="mt-1 space-y-1 pl-3">
+                        <a
+                          href={`${import.meta.env.BASE_URL}Ahmad_Raza_Resume.pdf`}
+                          download
+                          onClick={closeMobileMenu}
+                          className={mobileMenuItemClass}
+                        >
+                          Resume
+                        </a>
+                        <a
+                          href={`${import.meta.env.BASE_URL}Ahmad_Raza_CV.pdf`}
+                          download
+                          onClick={closeMobileMenu}
+                          className={mobileMenuItemClass}
+                        >
+                          CV
+                        </a>
+                      </div>
+                    )}
                   </li>
 
                   <li>
